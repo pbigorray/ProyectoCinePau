@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
 }
+
+apply plugin: "realm-android"
 
 android {
     namespace 'com.example.proyectocinepau'
@@ -29,7 +33,7 @@ android {
 }
 
 dependencies {
-
+    implementation 'io.realm:realm-gradle-plugin:10.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

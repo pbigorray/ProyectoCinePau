@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="App realizada por Pau Bigorra Yanguas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/bienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Sign Up"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/userText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenida" />
+
+    <EditText
+        android:id="@+id/passText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/dni"
+        app:layout_constraintStart_toStartOf="@+id/dni"
+        app:layout_constraintTop_toBottomOf="@+id/dni" />
+
+    <EditText
+        android:id="@+id/conPassText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/passText"
+        app:layout_constraintStart_toStartOf="@+id/passText"
+        app:layout_constraintTop_toBottomOf="@+id/passText" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#9C27B0"
+        android:text="already have an account"
+        app:layout_constraintEnd_toEndOf="@+id/registro"
+        app:layout_constraintStart_toStartOf="@+id/registro"
+        app:layout_constraintTop_toBottomOf="@+id/registro" />
+
+    <EditText
+        android:id="@+id/dni"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="DNI"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/userText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userText"
+        app:layout_constraintTop_toBottomOf="@+id/apellidos" />
+
+    <EditText
+        android:id="@+id/apellidos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/userText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userText"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/userText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userText"
+        app:layout_constraintTop_toBottomOf="@+id/userText" />
+
+    <Button
+        android:id="@+id/registro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Registrarse"
+        app:layout_constraintEnd_toEndOf="@+id/conPassText"
+        app:layout_constraintStart_toStartOf="@+id/conPassText"
+        app:layout_constraintTop_toBottomOf="@+id/conPassText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,4 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.MyTheme" parent="Theme.ProyectoCinePau">
+        <item name="colorPrimaryVariant">@color/fondo</item>
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:toolbarStyle">@color/fondo</item>
+        <item name="android:statusBarColor">@color/fondo</item>
+    </style>
 </resources>
