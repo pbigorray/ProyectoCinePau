@@ -1,10 +1,14 @@
 package com.example.proyectocinepau.model.tipos;
 
 public enum Genero {
-    DRAMA(0);
+    DRAMA("Drama"),COMEDIA("Comedia"),TRILLER("Triller"),AVENTURAS("Aventuras");
 
-    private int id;
-    Genero(int id) {
-        this.id=id;
+    private String genero;
+    Genero(String genero) {
+        this.genero=genero;
+    }
+
+    public String getGenero() {
+        return genero;
     }
 }

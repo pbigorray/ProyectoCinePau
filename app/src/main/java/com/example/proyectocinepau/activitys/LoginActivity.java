@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.proyectocinepau.MainActivity;
 import com.example.proyectocinepau.R;
@@ -22,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText userText, passText;
 
     Realm con;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             user.setNombre("admin");
             user.setUsuario("admin");
             user.setPass("admin");
-            user.setRol(3);
+            user.setRol(2);
 
             con.beginTransaction();
             con.copyToRealmOrUpdate(user);
@@ -57,7 +58,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
             }else {
                 if(userLog.getPass().equals(pass)){
-                        Intent i= new Intent(this, MainActivity.class);
+                        Intent i= new Intent(this, CarteleraActivity.class);
+                        i.putExtra("dni",userLog.getDNI());
                         startActivity(i);
                 }else {
                     Toast.makeText(this, "La contraseña no coniciden", Toast.LENGTH_SHORT).show();

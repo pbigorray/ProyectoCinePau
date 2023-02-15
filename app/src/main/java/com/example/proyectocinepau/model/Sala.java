@@ -7,7 +7,8 @@ public class Sala extends RealmObject {
     @PrimaryKey
     private int numSala;
 
-    private int fila,columnas,tipo;
+    private int filas,columnas;
+    private String tipo;
 
     public int getNumSala() {
         return numSala;
@@ -17,12 +18,12 @@ public class Sala extends RealmObject {
         this.numSala = numSala;
     }
 
-    public int getFila() {
-        return fila;
+    public int getFilas() {
+        return filas;
     }
 
-    public void setFila(int fila) {
-        this.fila = fila;
+    public void setFilas(int filas) {
+        this.filas = filas;
     }
 
     public int getColumnas() {
@@ -33,11 +34,11 @@ public class Sala extends RealmObject {
         this.columnas = columnas;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 }

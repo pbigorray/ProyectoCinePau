@@ -4,10 +4,12 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Sesion extends RealmObject {
+
     @PrimaryKey
-    private int numSala;
+    private int idSesion;
 
     private String nombrePelicula,hora;
+    private int numSala;
 
     public int getNumSala() {
         return numSala;
@@ -31,5 +33,13 @@ public class Sesion extends RealmObject {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public int getIdSesion() {
+        return idSesion;
+    }
+
+    public void setIdSesion(int idSesion) {
+        this.idSesion = idSesion;
     }
 }

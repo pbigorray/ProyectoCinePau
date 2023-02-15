@@ -1,12 +1,15 @@
 package com.example.proyectocinepau.model.tipos;
 
 public enum TipoSala {
-    NORMAL(0),S_3D(1),S_4DX(2);
+    NORMAL("Normal"),S_3D("3D"),S_4DX("4DX");
 
-    private int id;
+    private String sala;
 
-    TipoSala(int id) {
-        this.id = id;
+    TipoSala(String sala) {
+        this.sala = sala;
     }
 
+    public String getSala() {
+        return sala;
+    }
 }

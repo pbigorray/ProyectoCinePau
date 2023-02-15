@@ -2,6 +2,8 @@ package com.example.proyectocinepau.db;
 
 import android.content.Context;
 
+import com.example.proyectocinepau.model.Pelicula;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -30,12 +32,4 @@ public class DataBase {
         }
         return con;
     }
-
-//    public int getSize(){
-//        int size;
-//
-//        con.
-//
-//        return size;
-//    }
 }

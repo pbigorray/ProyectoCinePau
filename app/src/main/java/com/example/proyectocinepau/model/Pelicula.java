@@ -7,7 +7,7 @@ public class Pelicula extends RealmObject {
     @PrimaryKey
     private String titulo;
 
-    private String duracion,descripcion,edad,genero;
+    private String duracion,descripcion,edad,genero,urlImagen;
     private boolean cartelera;
 
     public String getTitulo() {
@@ -56,5 +56,13 @@ public class Pelicula extends RealmObject {
 
     public void setCartelera(boolean cartelera) {
         this.cartelera = cartelera;
+    }
+
+    public String getUrlImagen() {
+        return urlImagen;
+    }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 }

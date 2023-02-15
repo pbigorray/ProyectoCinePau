@@ -1,11 +1,16 @@
 package com.example.proyectocinepau.model.tipos;
 
 public enum Edad {
-        A(0),AI(1),EDAD_INF_7(2),EDAD_SUP_7(3),EDAD_SUP_12(4),EDAD_SUP_16(5),EDAD_SUP_18(6);
+        A("Todas las edades"),AI("Todas las edades,recomendado para niños"),EDAD_INF_7("Mayores de 7 años"),EDAD_SUP_7("Mayores de 7 años. Recomendado para niños"),EDAD_SUP_12("Mayores de 12 años"),
+        EDAD_SUP_16("Mayores de 16 años"),EDAD_SUP_18("Mayores de 18 años");
 
-        private int edad;
+        private String  edad;
 
-        Edad(int edad) {
+        Edad(String edad) {
                 this.edad=edad;
+        }
+
+        public String  getEdad() {
+                return edad;
         }
 }
