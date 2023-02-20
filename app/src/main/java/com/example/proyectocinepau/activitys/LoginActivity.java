@@ -15,6 +15,7 @@ import com.example.proyectocinepau.MainActivity;
 import com.example.proyectocinepau.R;
 import com.example.proyectocinepau.db.DataBase;
 import com.example.proyectocinepau.model.User;
+import com.example.proyectocinepau.model.tipos.Rol;
 
 import io.realm.Realm;
 
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             user.setNombre("admin");
             user.setUsuario("admin");
             user.setPass("admin");
-            user.setRol(2);
+            user.setRol(Rol.ADMIN.getNum());
 
             con.beginTransaction();
             con.copyToRealmOrUpdate(user);
@@ -60,7 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                 if(userLog.getPass().equals(pass)){
                         Intent i= new Intent(this, CarteleraActivity.class);
                         i.putExtra("dni",userLog.getDNI());
+                        i.putExtra("onCartelera",true);
                         startActivity(i);
+                        finish();
                 }else {
                     Toast.makeText(this, "La contraseña no coniciden", Toast.LENGTH_SHORT).show();
                 }

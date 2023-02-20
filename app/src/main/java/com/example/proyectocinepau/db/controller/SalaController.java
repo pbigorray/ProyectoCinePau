@@ -35,7 +35,7 @@ public class SalaController {
         return (int) con.where(Sala.class).equalTo("tipo", "").count();
     }
     public Sala getSala(int i){
-        return getSalas().get(i);
+        return con.where(Sala.class).equalTo("numSala",i).findFirst();
     }
     public void addSala(int sala, int filas, int columnas,String tipo) {
         Sala s = new Sala();

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activitys.PeliculaActivity">
 
+    <Button
+        android:id="@+id/atrasPelicula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/imagenDef"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -63,6 +72,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="descripcion" />
+
+            <CheckBox
+                android:id="@+id/verCartelera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver en cartelera"
+                tools:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/sesionContainer"

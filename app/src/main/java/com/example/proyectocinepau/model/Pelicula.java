@@ -1,9 +1,11 @@
 package com.example.proyectocinepau.model;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Pelicula extends RealmObject {
+public class Pelicula extends RealmObject implements Serializable {
     @PrimaryKey
     private String titulo;
 

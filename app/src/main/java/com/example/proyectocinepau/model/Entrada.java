@@ -5,16 +5,40 @@ import io.realm.annotations.PrimaryKey;
 
 public class Entrada extends RealmObject {
     @PrimaryKey
-    private String id;
+    private int id;
 
-    private int fila, butaca;
+    private int columna, fila,idSesion,idVenta;
 
-    public String getId() {
+    public int getIdSesion() {
+        return idSesion;
+    }
+
+    public void setIdSesion(int idSesion) {
+        this.idSesion = idSesion;
+    }
+
+    public int getIdVenta() {
+        return idVenta;
+    }
+
+    public void setIdVenta(int idVenta) {
+        this.idVenta = idVenta;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void setColumna(int columna) {
+        this.columna = columna;
     }
 
     public int getFila() {
@@ -23,13 +47,5 @@ public class Entrada extends RealmObject {
 
     public void setFila(int fila) {
         this.fila = fila;
-    }
-
-    public int getButaca() {
-        return butaca;
-    }
-
-    public void setButaca(int butaca) {
-        this.butaca = butaca;
     }
 }

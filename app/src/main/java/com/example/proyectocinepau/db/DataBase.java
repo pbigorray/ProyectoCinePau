@@ -22,7 +22,7 @@ public class DataBase {
             String nombre="cineDB";
             RealmConfiguration configuration= new RealmConfiguration
                     .Builder()
-                    .schemaVersion(1)
+                    .schemaVersion(2)
                     .allowWritesOnUiThread(true)
                     .deleteRealmIfMigrationNeeded()
                     .name(nombre)

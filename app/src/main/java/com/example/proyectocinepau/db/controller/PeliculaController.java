@@ -1,7 +1,6 @@
 package com.example.proyectocinepau.db.controller;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 
 import com.example.proyectocinepau.db.DataBase;
 import com.example.proyectocinepau.model.Pelicula;
@@ -25,8 +24,11 @@ public class PeliculaController {
         }
     }
 
-    public List<Pelicula> getCartelera(){
+    public List<Pelicula> getOnCartelera(){
         return con.where(Pelicula.class).equalTo("cartelera",true).findAll();
+    }
+    public List<Pelicula> getCartelera(){
+        return con.where(Pelicula.class).findAll();
     }
     public int getSize(){
         return (int) con.where(Pelicula.class).count();
@@ -34,11 +36,20 @@ public class PeliculaController {
     public int getSizeCaratelera(){
         return (int) con.where(Pelicula.class).equalTo("cartelera",true).count();
     }
+    public Pelicula getOnPelicula(int i){
+        return getOnCartelera().get(i);
+    }
     public Pelicula getPelicula(int i){
         return getCartelera().get(i);
     }
     public Pelicula getPelicula(String titulo){
         return con.where(Pelicula.class).equalTo("titulo",titulo).findFirst();
+    }
+
+    public void updatePelicula(Pelicula pelicula){
+        con.beginTransaction();
+        con.copyToRealmOrUpdate(pelicula);
+        con.commitTransaction();
     }
 
     public void addPeliculas(String titulo, String duracion, String descripcion, String genero, String edad, boolean cartelera, String url) {

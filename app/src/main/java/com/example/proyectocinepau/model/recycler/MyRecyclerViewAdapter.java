@@ -28,7 +28,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private PeliculaController peliculaController;
 
 
-    public MyRecyclerViewAdapter(Context context) {
+    public MyRecyclerViewAdapter(Context context,List<Pelicula> listaPeliculas) {
 //        con = DataBase.getInstance().connection(context);
         peliculaController=new PeliculaController(context);
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -37,7 +37,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 //            addDefault();
 //        }
 //        listaPeliculas = con.where(Pelicula.class).equalTo("cartelera",true).findAll();
-        listaPeliculas = peliculaController.getCartelera();
+        this.listaPeliculas = listaPeliculas;
 
     }
 
@@ -61,14 +61,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         Pelicula p = listaPeliculas.get(position);
 
         holder.nombre.setText("" + p.getTitulo());
-        Picasso.get().load(p.getUrlImagen()).into(holder.imagen);
+        try{
+            Picasso.get().load(p.getUrlImagen()).into(holder.imagen);
+        }catch (Exception e){
+            Picasso.get().load("https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png").into(holder.imagen);
+        }
     }
 
 
     @Override
     public int getItemCount() {
 //        return (int) con.where(Pelicula.class).equalTo("cartelera",true).count();
-        return peliculaController.getSizeCaratelera();
+        return listaPeliculas.size();
     }
 
 
@@ -81,5 +85,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             nombre = itemView.findViewById(R.id.nombrePelicula);
             imagen = itemView.findViewById(R.id.imagen);
         }
+    }
+
+    public List<Pelicula> getListaPeliculas() {
+        return listaPeliculas;
     }
 }

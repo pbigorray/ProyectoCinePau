@@ -13,4 +13,12 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.MyTheme" parent="Theme.ProyectoCinePau">
+        <item name="android:windowBackground">@color/fondo_oscuro</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/botones_ocuro</item>
+        <item name="colorSecondary">@color/botones_ocuro</item>
+
+
+    </style>
 </resources>

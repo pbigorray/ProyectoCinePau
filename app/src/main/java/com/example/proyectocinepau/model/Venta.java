@@ -7,8 +7,16 @@ public class Venta extends RealmObject {
     @PrimaryKey
     private int idVenta;
 
-    private String DNIEmpleado,idEntrada,hora;
+    private String DNIEmpleado,idEntrada,hora,usuario;
+    private float precio;
+    private int numSala;
 
+    public float getPrecio() {
+        return precio;
+    }
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
     public int getIdVenta() {
         return idVenta;
     }
@@ -39,5 +47,21 @@ public class Venta extends RealmObject {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getNumSala() {
+        return numSala;
+    }
+
+    public void setNumSala(int numSala) {
+        this.numSala = numSala;
     }
 }
