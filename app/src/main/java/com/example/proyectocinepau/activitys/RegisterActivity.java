@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.proyectocinepau.R;
 import com.example.proyectocinepau.db.DataBase;
+import com.example.proyectocinepau.db.controller.UserController;
 import com.example.proyectocinepau.model.tipos.Rol;
 import com.example.proyectocinepau.model.User;
 
@@ -43,47 +44,48 @@ public class RegisterActivity extends AppCompatActivity {
 
         register.setOnClickListener(view -> {
             String pass,conPass,user,nombre,apellidos,dni;
-            if (!userText.getText().toString().isEmpty()){
-                if (!passText.getText().toString().isEmpty()){
-                    if (!conPassText.getText().toString().isEmpty()){
-                        if (!dniText.getText().toString().isEmpty()){
-                            user=userText.getText().toString();
-                            pass=passText.getText().toString();
-                            conPass=conPassText.getText().toString();
-                            nombre=nombreText.getText().toString();
-                            apellidos=apellidosText.getText().toString();
-                            dni=dniText.getText().toString();
+            if (userText.length()<1){
+                Toast.makeText(this, "El usuario no puede estar vacio", Toast.LENGTH_SHORT).show();
+            } else if (nombreText.length()<1) {
+                Toast.makeText(this, "El nombre no puede estar vacio", Toast.LENGTH_SHORT).show();
 
-                            if (pass.equals(conPass)){
-                                User newUser = new User();
-                                newUser.setUsuario(user);
-                                newUser.setNombre(nombre);
-                                newUser.setApellidos(apellidos);
-                                newUser.setDNI(dni);
-                                newUser.setPass(pass);
-                                newUser.setRol(Rol.USER.getNum());
+            } else if (apellidosText.length()<1) {
+                Toast.makeText(this, "Los apellidos no puede estar vacios", Toast.LENGTH_SHORT).show();
 
-                                con= DataBase.getInstance().connection(this);
-                                con.executeTransaction(new Realm.Transaction() {
-                                    @Override
-                                    public void execute(Realm realm) {
-                                        realm.copyToRealmOrUpdate(newUser);
-                                    }
-                                });
-                                Toast.makeText(this, "El usuario se añadido correctamente", Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(this, "Las contraseñan no coinciden", Toast.LENGTH_SHORT).show();
-                            }
-                            Intent i = new Intent(this,LoginActivity.class);
-                            startActivity(i);
-                        }
-                    }
+            } else if (dniText.length()<1) {
+                Toast.makeText(this, "El DNI no puede estar vacio", Toast.LENGTH_SHORT).show();
+
+            } else if (passText.length()<1) {
+                Toast.makeText(this, "La contraseña no puede estar vacia", Toast.LENGTH_SHORT).show();
+
+            }else if (conPassText.length()<1) {
+                Toast.makeText(this, "La confirmacion de contraseña no puede estar vacia", Toast.LENGTH_SHORT).show();
+            }else {
+                user=userText.getText().toString();
+                pass=passText.getText().toString();
+                conPass=conPassText.getText().toString();
+                nombre=nombreText.getText().toString();
+                apellidos=apellidosText.getText().toString();
+                dni=dniText.getText().toString();
+
+                if (pass.equals(conPass)){
+                    User newUser = new User();
+                    newUser.setUsuario(user);
+                    newUser.setNombre(nombre);
+                    newUser.setApellidos(apellidos);
+                    newUser.setDNI(dni);
+                    newUser.setPass(pass);
+                    newUser.setRol(Rol.USER.getNum());
+
+                    UserController userController = new UserController(this);
+                    userController.addUser(newUser);
+                    Toast.makeText(this, "El usuario se añadido correctamente", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "Las contraseñan no coinciden", Toast.LENGTH_SHORT).show();
                 }
+                Intent i = new Intent(this,LoginActivity.class);
+                startActivity(i);
             }
-
-
-
-
         });
     }
 }

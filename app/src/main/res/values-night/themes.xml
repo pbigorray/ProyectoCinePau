@@ -15,10 +15,18 @@
     </style>
     <style name="Theme.MyTheme" parent="Theme.ProyectoCinePau">
         <item name="android:windowBackground">@color/fondo_oscuro</item>
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="colorPrimary">@color/botones_ocuro</item>
         <item name="colorSecondary">@color/botones_ocuro</item>
-
-
+    </style>
+    <style name="Theme.NoBar" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHintInverse">@color/black</item>
+        <item name="colorPrimary">@color/botones</item>
+        <item name="colorSecondary">@color/botones</item>
     </style>
 </resources>

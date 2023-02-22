@@ -16,6 +16,7 @@ import com.example.proyectocinepau.db.controller.SesionController;
 import com.example.proyectocinepau.model.ButacaOcupada;
 import com.example.proyectocinepau.model.ButacasCompradas;
 import com.example.proyectocinepau.model.Sala;
+import com.example.proyectocinepau.model.Sesion;
 import com.example.proyectocinepau.model.tipos.TipoSala;
 
 import java.util.List;
@@ -28,12 +29,14 @@ public class EntradasAdapter extends RecyclerView.Adapter<EntradasAdapter.ViewHo
     private Context context;
     private SesionController sesionController;
     private Sala sala;
+    private Sesion sesion;
 
-    public EntradasAdapter(Context context, List<ButacaOcupada> butacaOcupadas, SesionController sesionController,Sala sala) {
+    public EntradasAdapter(Context context, List<ButacaOcupada> butacaOcupadas, SesionController sesionController, Sala sala, Sesion sesion) {
         this.context = context;
         this.butacaOcupadas = butacaOcupadas;
         this.sesionController=sesionController;
         this.sala=sala;
+        this.sesion=sesion;
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -62,6 +65,9 @@ public class EntradasAdapter extends RecyclerView.Adapter<EntradasAdapter.ViewHo
 
         viewHolder.columna.setText("Columna: "+a.getX()+"");
         viewHolder.fila.setText("Fila: "+a.getY()+"");
+        viewHolder.tipoSala.setText("Tipo sala: "+sala.getTipo());
+        viewHolder.pelicula.setText(sesion.getNombrePelicula());
+        viewHolder.sesion.setText("Hora inicio: "+sesion.getHora());
     }
 
     @Override
@@ -73,7 +79,7 @@ public class EntradasAdapter extends RecyclerView.Adapter<EntradasAdapter.ViewHo
         clicker = click;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView fila, columna, precio;
+        TextView fila, columna, precio,pelicula,tipoSala,sesion;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,7 +87,9 @@ public class EntradasAdapter extends RecyclerView.Adapter<EntradasAdapter.ViewHo
             fila = itemView.findViewById(R.id.fila);
             columna = itemView.findViewById(R.id.columna);
             precio = itemView.findViewById(R.id.precio);
-
+            pelicula= itemView.findViewById(R.id.entradaPelicula);
+            tipoSala=itemView.findViewById(R.id.entradaTipoSala);
+            sesion=itemView.findViewById(R.id.entradaSesion);
         }
     }
 }

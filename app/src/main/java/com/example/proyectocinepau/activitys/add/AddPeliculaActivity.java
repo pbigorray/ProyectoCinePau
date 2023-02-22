@@ -63,22 +63,25 @@ public class AddPeliculaActivity extends AppCompatActivity {
             genero=(Genero) generoSpinner.getSelectedItem();
             cartelera=addCartelera.isChecked();
 
-            if (!addTitulo.getText().toString().equals("")) {
+            if (addTitulo.getText().toString().equals("")) {
                 Toast.makeText(this, "El titulo no puede estar vacio", Toast.LENGTH_SHORT).show();
             }else{
                 titulo=addTitulo.getText().toString();
                 peliculaController.addPeliculas(titulo,duracion,desc,genero.getGenero(),edad.getEdad(),cartelera,imagen);
+                Intent intent = new Intent(getApplicationContext(), CarteleraActivity.class);
+                intent.putExtra("dni",data.getString("dni"));
+                intent.putExtra("onCartelera",data.getBoolean("onCartelera"));
+                startActivity(intent);
+                finish();
             }
 
-            Intent intent = new Intent(getApplicationContext(), CarteleraActivity.class);
-            intent.putExtra("dni",data.getString("dni"));
-            startActivity(intent);
-            finish();
+
         });
 
         volver.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), CarteleraActivity.class);
             intent.putExtra("dni",data.getString("dni"));
+            intent.putExtra("onCartelera",data.getBoolean("onCartelera"));
             startActivity(intent);
             finish();
         });

@@ -71,7 +71,7 @@ public class CompraEntradaActivity extends AppCompatActivity {
         Sala sala= sesionController.getSala(sesion.getNumSala());
         total= 0;
 
-        EntradasAdapter entradasAdapter = new EntradasAdapter(this, but.getButacas(),sesionController,sala);
+        EntradasAdapter entradasAdapter = new EntradasAdapter(this, but.getButacas(),sesionController,sala,sesion);
 
         recyclerView.setAdapter(entradasAdapter);
 
@@ -124,6 +124,7 @@ public class CompraEntradaActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, SesionActivity.class);
                 intent.putExtra("dni", user.getDNI());
                 intent.putExtra("sesion", sesion.getIdSesion());
+                intent.putExtra("hora", sesion.getHora());
                 intent.putExtra("pelicula", sesion.getNombrePelicula());
                 intent.putExtra("onCartelera",data.getBoolean("onCartelera"));
                 startActivity(intent);

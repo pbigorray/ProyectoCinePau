@@ -53,9 +53,9 @@ public class SalaController {
     public void addDefault() {
         addSala(1,9,9, TipoSala.NORMAL.getSala());
         addSala(2,9,9, TipoSala.S_3D.getSala());
-        addSala(3,12,12, TipoSala.S_4DX.getSala());
-        addSala(4,12,12, TipoSala.S_3D.getSala());
-        addSala(5,15,15, TipoSala.NORMAL.getSala());
-        addSala(6,15,15, TipoSala.S_4DX.getSala());
+        addSala(3,10,10, TipoSala.S_4DX.getSala());
+        addSala(4,10,10, TipoSala.S_3D.getSala());
+        addSala(5,11,11, TipoSala.NORMAL.getSala());
+        addSala(6,11,11, TipoSala.S_4DX.getSala());
     }
 }

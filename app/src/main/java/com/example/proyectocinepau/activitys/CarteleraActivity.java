@@ -44,6 +44,10 @@ public class CarteleraActivity extends AppCompatActivity {
         peliculaController=new PeliculaController(this);
         Bundle data = getIntent().getExtras();
 
+        addPeliculas.setVisibility(View.GONE);
+        addSala.setVisibility(View.GONE);
+        addSesion.setVisibility(View.GONE);
+        menuAdd.setVisibility(View.GONE);
         boolean onCartelera= data.getBoolean("onCartelera",true);
         if (onCartelera){
             listaPelicula=peliculaController.getOnCartelera();
@@ -69,16 +73,27 @@ public class CarteleraActivity extends AppCompatActivity {
 
         User userLog=con.where(User.class).equalTo("DNI",dni).findFirst();
         if(userLog!=null){
-            if (Rol.ADMIN.getNum()== userLog.getRol()){
+            if (Rol.ADMIN.getNum()==userLog.getRol()){
                 addPeliculas.setVisibility(View.VISIBLE);
                 addSala.setVisibility(View.VISIBLE);
                 addSesion.setVisibility(View.VISIBLE);
                 menuAdd.setVisibility(View.VISIBLE);
 
-
-            }else {
-                Toast.makeText(this, dni, Toast.LENGTH_SHORT).show();
             }
+            String rol;
+            switch (userLog.getRol()){
+                case 1:
+                    rol="Empleado";
+                    break;
+                case 2:
+                    rol="Admin";
+                    break;
+                default:
+                    rol="Cliente";
+                    break;
+            }
+            Toast.makeText(this, "Rol del Usuario: "+rol, Toast.LENGTH_SHORT).show();
+
         }
         addPeliculas.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), AddPeliculaActivity.class);
